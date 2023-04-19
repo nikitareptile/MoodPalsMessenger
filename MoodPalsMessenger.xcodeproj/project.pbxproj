@@ -1,0 +1,447 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FDE0145629F0147700AF579A /* MoodPalsMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */; };
+		FDE0145829F0147700AF579A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0145729F0147700AF579A /* MainView.swift */; };
+		FDE0145A29F0147800AF579A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0145929F0147800AF579A /* Assets.xcassets */; };
+		FDE0145D29F0147800AF579A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0145C29F0147800AF579A /* Preview Assets.xcassets */; };
+		FDE0146429F014A400AF579A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146329F014A400AF579A /* LoginView.swift */; };
+		FDE0146629F014AC00AF579A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146529F014AC00AF579A /* RegisterView.swift */; };
+		FDE0146829F014DC00AF579A /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146729F014DC00AF579A /* MoodView.swift */; };
+		FDE0146A29F014F200AF579A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146929F014F200AF579A /* WelcomeView.swift */; };
+		FDE0146D29F0150F00AF579A /* WelcomeScreenText.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146C29F0150F00AF579A /* WelcomeScreenText.swift */; };
+		FDE0146F29F0151F00AF579A /* SecuredButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146E29F0151F00AF579A /* SecuredButton.swift */; };
+		FDE0147129F0152B00AF579A /* BlueBigBottomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0147029F0152B00AF579A /* BlueBigBottomButton.swift */; };
+		FDE0147329F0153800AF579A /* MoodChooseButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0147229F0153800AF579A /* MoodChooseButton.swift */; };
+		FDE0147629F01C0400AF579A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FDE0147529F01C0400AF579A /* GoogleService-Info.plist */; };
+		FDE0147929F01DBB00AF579A /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FDE0147829F01DBB00AF579A /* FirebaseAuth */; };
+		FDE0147B29F01DBB00AF579A /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FDE0147A29F01DBB00AF579A /* FirebaseDatabase */; };
+		FDE0147D29F01DBB00AF579A /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FDE0147C29F01DBB00AF579A /* FirebaseFirestore */; };
+		FDE0147F29F01DBB00AF579A /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = FDE0147E29F01DBB00AF579A /* FirebaseStorage */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FDE0145229F0147700AF579A /* MoodPalsMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodPalsMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPalsMessengerApp.swift; sourceTree = "<group>"; };
+		FDE0145729F0147700AF579A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FDE0145929F0147800AF579A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FDE0145C29F0147800AF579A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FDE0146329F014A400AF579A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FDE0146529F014AC00AF579A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
+		FDE0146729F014DC00AF579A /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
+		FDE0146929F014F200AF579A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		FDE0146C29F0150F00AF579A /* WelcomeScreenText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenText.swift; sourceTree = "<group>"; };
+		FDE0146E29F0151F00AF579A /* SecuredButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecuredButton.swift; sourceTree = "<group>"; };
+		FDE0147029F0152B00AF579A /* BlueBigBottomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueBigBottomButton.swift; sourceTree = "<group>"; };
+		FDE0147229F0153800AF579A /* MoodChooseButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodChooseButton.swift; sourceTree = "<group>"; };
+		FDE0147529F01C0400AF579A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FDE0144F29F0147700AF579A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE0147B29F01DBB00AF579A /* FirebaseDatabase in Frameworks */,
+				FDE0147F29F01DBB00AF579A /* FirebaseStorage in Frameworks */,
+				FDE0147929F01DBB00AF579A /* FirebaseAuth in Frameworks */,
+				FDE0147D29F01DBB00AF579A /* FirebaseFirestore in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FDE0144929F0147700AF579A = {
+			isa = PBXGroup;
+			children = (
+				FDE0145429F0147700AF579A /* MoodPalsMessenger */,
+				FDE0145329F0147700AF579A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FDE0145329F0147700AF579A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0145229F0147700AF579A /* MoodPalsMessenger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FDE0145429F0147700AF579A /* MoodPalsMessenger */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */,
+				FDE0147529F01C0400AF579A /* GoogleService-Info.plist */,
+				FDE0146B29F014FF00AF579A /* Views */,
+				FDE0147429F0153C00AF579A /* Components */,
+				FDE0145929F0147800AF579A /* Assets.xcassets */,
+				FDE0145B29F0147800AF579A /* Preview Content */,
+			);
+			path = MoodPalsMessenger;
+			sourceTree = "<group>";
+		};
+		FDE0145B29F0147800AF579A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0145C29F0147800AF579A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FDE0146B29F014FF00AF579A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0146929F014F200AF579A /* WelcomeView.swift */,
+				FDE0146529F014AC00AF579A /* RegisterView.swift */,
+				FDE0146329F014A400AF579A /* LoginView.swift */,
+				FDE0146729F014DC00AF579A /* MoodView.swift */,
+				FDE0145729F0147700AF579A /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FDE0147429F0153C00AF579A /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0146E29F0151F00AF579A /* SecuredButton.swift */,
+				FDE0146C29F0150F00AF579A /* WelcomeScreenText.swift */,
+				FDE0147029F0152B00AF579A /* BlueBigBottomButton.swift */,
+				FDE0147229F0153800AF579A /* MoodChooseButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FDE0145129F0147700AF579A /* MoodPalsMessenger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDE0146029F0147800AF579A /* Build configuration list for PBXNativeTarget "MoodPalsMessenger" */;
+			buildPhases = (
+				FDE0144E29F0147700AF579A /* Sources */,
+				FDE0144F29F0147700AF579A /* Frameworks */,
+				FDE0145029F0147700AF579A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MoodPalsMessenger;
+			packageProductDependencies = (
+				FDE0147829F01DBB00AF579A /* FirebaseAuth */,
+				FDE0147A29F01DBB00AF579A /* FirebaseDatabase */,
+				FDE0147C29F01DBB00AF579A /* FirebaseFirestore */,
+				FDE0147E29F01DBB00AF579A /* FirebaseStorage */,
+			);
+			productName = MoodPalsMessenger;
+			productReference = FDE0145229F0147700AF579A /* MoodPalsMessenger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FDE0144A29F0147700AF579A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					FDE0145129F0147700AF579A = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = FDE0144D29F0147700AF579A /* Build configuration list for PBXProject "MoodPalsMessenger" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FDE0144929F0147700AF579A;
+			packageReferences = (
+				FDE0147729F01DBB00AF579A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
+			productRefGroup = FDE0145329F0147700AF579A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FDE0145129F0147700AF579A /* MoodPalsMessenger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FDE0145029F0147700AF579A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE0145D29F0147800AF579A /* Preview Assets.xcassets in Resources */,
+				FDE0145A29F0147800AF579A /* Assets.xcassets in Resources */,
+				FDE0147629F01C0400AF579A /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FDE0144E29F0147700AF579A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDE0146D29F0150F00AF579A /* WelcomeScreenText.swift in Sources */,
+				FDE0147329F0153800AF579A /* MoodChooseButton.swift in Sources */,
+				FDE0146429F014A400AF579A /* LoginView.swift in Sources */,
+				FDE0146A29F014F200AF579A /* WelcomeView.swift in Sources */,
+				FDE0146629F014AC00AF579A /* RegisterView.swift in Sources */,
+				FDE0145829F0147700AF579A /* MainView.swift in Sources */,
+				FDE0146F29F0151F00AF579A /* SecuredButton.swift in Sources */,
+				FDE0145629F0147700AF579A /* MoodPalsMessengerApp.swift in Sources */,
+				FDE0147129F0152B00AF579A /* BlueBigBottomButton.swift in Sources */,
+				FDE0146829F014DC00AF579A /* MoodView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FDE0145E29F0147800AF579A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FDE0145F29F0147800AF579A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FDE0146129F0147800AF579A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MoodPalsMessenger/Preview Content\"";
+				DEVELOPMENT_TEAM = MBAQ3R6SWJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitatikhonyuk.MoodPalsMessenger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FDE0146229F0147800AF579A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"MoodPalsMessenger/Preview Content\"";
+				DEVELOPMENT_TEAM = MBAQ3R6SWJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nikitatikhonyuk.MoodPalsMessenger;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FDE0144D29F0147700AF579A /* Build configuration list for PBXProject "MoodPalsMessenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDE0145E29F0147800AF579A /* Debug */,
+				FDE0145F29F0147800AF579A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FDE0146029F0147800AF579A /* Build configuration list for PBXNativeTarget "MoodPalsMessenger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDE0146129F0147800AF579A /* Debug */,
+				FDE0146229F0147800AF579A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FDE0147729F01DBB00AF579A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FDE0147829F01DBB00AF579A /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDE0147729F01DBB00AF579A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FDE0147A29F01DBB00AF579A /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDE0147729F01DBB00AF579A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		FDE0147C29F01DBB00AF579A /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDE0147729F01DBB00AF579A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		FDE0147E29F01DBB00AF579A /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDE0147729F01DBB00AF579A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = FDE0144A29F0147700AF579A /* Project object */;
+}
