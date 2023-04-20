@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD90A18929F14C1E00C267BB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */; };
 		FDE0145629F0147700AF579A /* MoodPalsMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */; };
 		FDE0145829F0147700AF579A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0145729F0147700AF579A /* MainView.swift */; };
 		FDE0145A29F0147800AF579A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0145929F0147800AF579A /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		FDE0145229F0147700AF579A /* MoodPalsMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodPalsMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPalsMessengerApp.swift; sourceTree = "<group>"; };
 		FDE0145729F0147700AF579A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */,
 				FDE0147529F01C0400AF579A /* GoogleService-Info.plist */,
+				FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */,
 				FDE0146B29F014FF00AF579A /* Views */,
 				FDE0147429F0153C00AF579A /* Components */,
 				FDE0145929F0147800AF579A /* Assets.xcassets */,
@@ -200,6 +203,7 @@
 			files = (
 				FDE0146D29F0150F00AF579A /* WelcomeScreenText.swift in Sources */,
 				FDE0147329F0153800AF579A /* MoodChooseButton.swift in Sources */,
+				FD90A18929F14C1E00C267BB /* AuthenticationManager.swift in Sources */,
 				FDE0146429F014A400AF579A /* LoginView.swift in Sources */,
 				FDE0146A29F014F200AF579A /* WelcomeView.swift in Sources */,
 				FDE0146629F014AC00AF579A /* RegisterView.swift in Sources */,

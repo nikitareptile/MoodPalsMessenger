@@ -57,6 +57,11 @@ struct LoginView: View {
                     TextField("Электронная почта", text: $userEmail)
                         .textInputAutocapitalization(.never)
                         .keyboardType(.emailAddress)
+                        .onSubmit {
+                            getUsername(userEmail) { username in
+                                self.username = username
+                            }
+                        }
                         .onChange(of: userEmail, perform: { _ in
                             buttonActive()
                         })
@@ -64,11 +69,6 @@ struct LoginView: View {
                         if isPasswordHidden {
                             SecureField("Пароль", text: $password)
                                 .textInputAutocapitalization(.never)
-                                .onTapGesture(perform: {
-                                    getUsername(userEmail) { username in
-                                        self.username = username
-                                    }
-                                })
                                 .onChange(of: password) { _ in
                                     withAnimation(.easeIn(duration: 0.4)) {
                                         if username == "" {
@@ -186,7 +186,7 @@ struct LoginView: View {
                 print("Get login: \(dbUsername)")
                 completion(dbUsername)
             } else {
-                completion("Unknown")
+                completion("")
             }
         }
     }

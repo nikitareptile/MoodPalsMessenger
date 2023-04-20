@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MoodView: View {
+    
+    let defaults = UserDefaults.standard
+    
     enum Mood {
         case none, happy, neutral, sad, angry, sleepy, thoughtful
         var id: Self { self }

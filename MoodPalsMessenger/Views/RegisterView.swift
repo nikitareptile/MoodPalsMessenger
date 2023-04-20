@@ -8,23 +8,61 @@
 import SwiftUI
 import Firebase
 
-//class FirebaseManager: NSObject {
-//    let auth: Auth
-//    let storage: Storage
-//    let firestore: Firestore
-//
-//    static let shared = FirebaseManager()
-//
-//    override init() {
-//        FirebaseApp.configure()
-//
-//        self.auth = Auth.auth()
-//        self.storage = Storage.storage()
-//        self.firestore = Firestore.firestore()
-//
-//        super.init()
-//    }
-//}
+final class RegisterWithEmailViewModel: ObservableObject {
+    
+    @Published var username = ""
+    @Published var userEmail = ""
+    @Published var password = ""
+    
+    func isUsernameValidate() -> Bool {
+        let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_."
+        let filteredUsername = username.filter { allowedCharacters.contains($0) }
+        
+        if filteredUsername == username && username.count >= 4 && username.count <= 12 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func isEmailValidate() -> Bool {
+        let name = "[A-Z0-9a-z]([A-Z0-9a-z._%+-]{0,30}[A-Z0-9a-z])?"
+        let domain = "([A-Z0-9a-z]([A-Z0-9a-z-]{0,30}[A-Z0-9a-z])?\\.){1,5}"
+        let emailRegEx = name + "@" + domain + "[A-Za-z]{2,8}"
+        let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
+        
+        return emailTest.evaluate(with: userEmail)
+    }
+    
+    func isPasswordValidate() -> Bool {
+        let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=.,/\\~"
+        let filteredPassword = password.filter { allowedCharacters.contains($0) }
+        
+        if filteredPassword == password && password.count >= 6 {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func registerUser() {
+        guard isUsernameValidate(), isEmailValidate(), isPasswordValidate() else {
+            print("Что-то не так с логином или почтой, или паролем")
+            return
+        }
+        
+        Task {
+            do {
+                let returnetUserData = try await AuthenticationManager.shared.createUser(username: username, userEmail: userEmail, password: password)
+                print("Пользователь зарегистрирован")
+                print(returnetUserData)
+            } catch {
+                print("Ошибка регистрации: \(error)")
+            }
+        }
+    }
+    
+}
 
 struct RegisterView: View {
     
@@ -32,16 +70,13 @@ struct RegisterView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
+    @StateObject private var viewModel = RegisterWithEmailViewModel()
+    
     @State var screenWidth: CGFloat = UIScreen.main.bounds.width
     @State var screenHeight: CGFloat = UIScreen.main.bounds.height
     @State var isButtonEnabled = false
     @State var isPasswordHidden = true
-    @State var username = ""
-    @State var userEmail = ""
-    @State var password = ""
     @State var errorText = ""
-    
-    let db = Firestore.firestore()
     
     var textFieldColor: Color {
         colorScheme == .light ? .gray.opacity(0.2) : .white.opacity(0.2)
@@ -78,40 +113,49 @@ struct RegisterView: View {
 //                .padding(.bottom, 20)
                 
                 Group {
-                    TextField("Имя пользователя", text: $username)
+                    TextField("Имя пользователя", text: $viewModel.username)
                         .textInputAutocapitalization(.never)
-                        .onChange(of: username) { _ in
-                            if username.count == 0 || username.count >= 4 {
+                        .onChange(of: viewModel.username) { _ in
+                            if viewModel.isUsernameValidate() || viewModel.username.count == 0 {
                                 errorText = ""
                             } else {
-                                errorText = "Логин не может быть короче 4 символов"
+                                errorText = "Логин может содержать только латинские буквы и должен быть в пределах 4-12 символов"
                             }
+                            shouldWeEnableButton()
                         }
-                    TextField("Электронная почта", text: $userEmail)
+                    TextField("Электронная почта", text: $viewModel.userEmail)
                         .textInputAutocapitalization(.never)
                         .keyboardType(.emailAddress)
-                        .onChange(of: userEmail) { _ in
-                            if isEmailOK(email: userEmail) {
+                        .onChange(of: viewModel.userEmail) { _ in
+                            if viewModel.isEmailValidate() {
                                 errorText = ""
                             } else {
                                 errorText = "Введите верный адрес электронной почты"
                             }
-                            shouldWeEnableButton(username: username, userEmail: userEmail, password: password, text: errorText)
+                            shouldWeEnableButton()
                         }
                     HStack {
                         if isPasswordHidden {
-                            SecureField("Пароль", text: $password)
+                            SecureField("Пароль", text: $viewModel.password)
                                 .textInputAutocapitalization(.never)
-                                .onChange(of: password) { _ in
-                                    isPasswordOK(password: password)
-                                    shouldWeEnableButton(username: username, userEmail: userEmail, password: password, text: errorText)
+                                .onChange(of: viewModel.password) { _ in
+                                    if viewModel.isPasswordValidate() {
+                                        errorText = ""
+                                    } else {
+                                        errorText = "Пароль может содержать только латинские буквы, цифры и спецсимволы, а также должен быть не короче 6 символов"
+                                    }
+                                    shouldWeEnableButton()
                             }
                         } else {
-                            TextField("Пароль", text: $password)
+                            TextField("Пароль", text: $viewModel.password)
                                 .textInputAutocapitalization(.never)
-                                .onChange(of: password) { _ in
-                                    isPasswordOK(password: password)
-                                    shouldWeEnableButton(username: username, userEmail: userEmail, password: password, text: errorText)
+                                .onChange(of: viewModel.password) { _ in
+                                    if viewModel.isPasswordValidate() {
+                                        errorText = ""
+                                    } else {
+                                        errorText = "Пароль может содержать только латинские буквы, цифры и спецсимволы, а также должен быть не короче 6 символов"
+                                    }
+                                    shouldWeEnableButton()
                             }
                         }
                         Button {
@@ -141,12 +185,11 @@ struct RegisterView: View {
                     } label: {
                         Text("Войти")
                     }
-
                 }
                 
                 SecuredButton(title: "Зарегистрироваться", isEnabled: isButtonEnabled) {
                     defaults.set(true, forKey: "isUserRegistered")
-                    createNewAccount(username: username, email: userEmail, password: password)
+                    viewModel.registerUser()
                 }
             }
             .padding(.horizontal, 28)
@@ -155,50 +198,11 @@ struct RegisterView: View {
         .navigationBarBackButtonHidden()
     }
     
-    private func isEmailOK(email: String) -> Bool {
-        let name = "[A-Z0-9a-z]([A-Z0-9a-z._%+-]{0,30}[A-Z0-9a-z])?"
-        let domain = "([A-Z0-9a-z]([A-Z0-9a-z-]{0,30}[A-Z0-9a-z])?\\.){1,5}"
-        let emailRegEx = name + "@" + domain + "[A-Za-z]{2,8}"
-        let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
-        return emailTest.evaluate(with: email)
-    }
-    
-    private func isPasswordOK(password: String) {
-        let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=.,/\\~"
-        let filtered = password.filter { allowedCharacters.contains($0) }
-        
-        if filtered != password {
-            self.password = filtered
-        }
-        
-        if password.count == 0 || password.count >= 6 {
-            errorText = ""
-        } else {
-            errorText = "Пароль должен быть 6 символов минимум"
-        }
-    }
-    
-    private func shouldWeEnableButton(username: String, userEmail: String, password: String, text: String) {
-        if username.count >= 4 && isEmailOK(email: userEmail) == true && password != "" && text == "" {
+    private func shouldWeEnableButton() {
+        if viewModel.isUsernameValidate() && viewModel.isEmailValidate() && viewModel.isPasswordValidate() {
             isButtonEnabled = true
         } else {
             isButtonEnabled = false
-        }
-    }
-    
-    private func createNewAccount(username: String, email: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let createError = error {
-                print("Произошла ошибка: \(createError)")
-                return
-            }
-        }
-        guard let userUid = Auth.auth().currentUser?.uid else { return }
-        let userData = ["uid": userUid, "username": username, "email": userEmail]
-        db.collection("users").document(userEmail).setData(userData) { error in
-            if let saveDataError = error {
-                print("Ошибка сохранения данных: \(saveDataError)")
-            }
         }
     }
     
