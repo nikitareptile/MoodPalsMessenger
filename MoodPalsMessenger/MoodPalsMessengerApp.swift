@@ -18,13 +18,14 @@ struct MoodPalsMessengerApp: App {
     
     var body: some Scene {
         WindowGroup {
-            if defaults.bool(forKey: "isNotFirstLaunch") == false {
-                WelcomeView()
-            } else if defaults.bool(forKey: "isUserRegistered") == false {
-                RegisterView()
-            } else {
-                LoginView()
-            }
+            RootView()
+//            if defaults.bool(forKey: "isNotFirstLaunch") == false {
+//                WelcomeView()
+//            } else if defaults.bool(forKey: "isUserRegistered") == false {
+//                RegisterView()
+//            } else {
+//                LogInView()
+//            }
         }
     }
 }

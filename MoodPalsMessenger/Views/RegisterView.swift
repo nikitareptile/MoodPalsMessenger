@@ -181,7 +181,7 @@ struct RegisterView: View {
                 HStack {
                     Text("Уже есть аккаунт?")
                     NavigationLink {
-                        LoginView()
+                        LogInView()
                     } label: {
                         Text("Войти")
                     }

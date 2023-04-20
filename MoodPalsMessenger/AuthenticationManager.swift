@@ -32,9 +32,22 @@ final class AuthenticationManager {
     
     let db = Firestore.firestore()
     
+    func getAuthenticatedUser() throws -> AuthDataResultModel {
+        guard let user = Auth.auth().currentUser else {
+            throw URLError(.badServerResponse)
+        }
+        
+        return AuthDataResultModel(user: user)
+    }
+    
     func createUser(username: String, userEmail: String, password: String) async throws -> AuthDataResultModel {
         let authDataResult = try await Auth.auth().createUser(withEmail: userEmail, password: password)
-        Auth.auth().currentUser?.createProfileChangeRequest().displayName = username
+        
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = username
+        changeRequest?.commitChanges { error in
+            print("Ошибка обновления DisplayName")
+        }
         
         let userUid = authDataResult.user.uid
         let userData = ["uid": userUid, "username": username, "email": userEmail]
@@ -45,5 +58,9 @@ final class AuthenticationManager {
         }
         
         return AuthDataResultModel(user: authDataResult.user)
+    }
+    
+    func signOut() throws {
+        try Auth.auth().signOut()
     }
 }

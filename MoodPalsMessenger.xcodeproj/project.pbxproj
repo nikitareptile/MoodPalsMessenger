@@ -8,11 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		FD90A18929F14C1E00C267BB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */; };
+		FD90A18B29F16A6B00C267BB /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90A18A29F16A6B00C267BB /* RootView.swift */; };
+		FD90A18D29F16CAE00C267BB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90A18C29F16CAE00C267BB /* SettingsView.swift */; };
 		FDE0145629F0147700AF579A /* MoodPalsMessengerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */; };
-		FDE0145829F0147700AF579A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0145729F0147700AF579A /* MainView.swift */; };
+		FDE0145829F0147700AF579A /* MessengerRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0145729F0147700AF579A /* MessengerRootView.swift */; };
 		FDE0145A29F0147800AF579A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0145929F0147800AF579A /* Assets.xcassets */; };
 		FDE0145D29F0147800AF579A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FDE0145C29F0147800AF579A /* Preview Assets.xcassets */; };
-		FDE0146429F014A400AF579A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146329F014A400AF579A /* LoginView.swift */; };
+		FDE0146429F014A400AF579A /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146329F014A400AF579A /* LogInView.swift */; };
 		FDE0146629F014AC00AF579A /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146529F014AC00AF579A /* RegisterView.swift */; };
 		FDE0146829F014DC00AF579A /* MoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146729F014DC00AF579A /* MoodView.swift */; };
 		FDE0146A29F014F200AF579A /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE0146929F014F200AF579A /* WelcomeView.swift */; };
@@ -29,12 +31,14 @@
 
 /* Begin PBXFileReference section */
 		FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		FD90A18A29F16A6B00C267BB /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		FD90A18C29F16CAE00C267BB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FDE0145229F0147700AF579A /* MoodPalsMessenger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodPalsMessenger.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodPalsMessengerApp.swift; sourceTree = "<group>"; };
-		FDE0145729F0147700AF579A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		FDE0145729F0147700AF579A /* MessengerRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessengerRootView.swift; sourceTree = "<group>"; };
 		FDE0145929F0147800AF579A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FDE0145C29F0147800AF579A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		FDE0146329F014A400AF579A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		FDE0146329F014A400AF579A /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
 		FDE0146529F014AC00AF579A /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		FDE0146729F014DC00AF579A /* MoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodView.swift; sourceTree = "<group>"; };
 		FDE0146929F014F200AF579A /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -101,11 +105,13 @@
 		FDE0146B29F014FF00AF579A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FD90A18A29F16A6B00C267BB /* RootView.swift */,
 				FDE0146929F014F200AF579A /* WelcomeView.swift */,
 				FDE0146529F014AC00AF579A /* RegisterView.swift */,
-				FDE0146329F014A400AF579A /* LoginView.swift */,
+				FDE0146329F014A400AF579A /* LogInView.swift */,
 				FDE0146729F014DC00AF579A /* MoodView.swift */,
-				FDE0145729F0147700AF579A /* MainView.swift */,
+				FDE0145729F0147700AF579A /* MessengerRootView.swift */,
+				FD90A18C29F16CAE00C267BB /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,14 +210,16 @@
 				FDE0146D29F0150F00AF579A /* WelcomeScreenText.swift in Sources */,
 				FDE0147329F0153800AF579A /* MoodChooseButton.swift in Sources */,
 				FD90A18929F14C1E00C267BB /* AuthenticationManager.swift in Sources */,
-				FDE0146429F014A400AF579A /* LoginView.swift in Sources */,
+				FDE0146429F014A400AF579A /* LogInView.swift in Sources */,
 				FDE0146A29F014F200AF579A /* WelcomeView.swift in Sources */,
 				FDE0146629F014AC00AF579A /* RegisterView.swift in Sources */,
-				FDE0145829F0147700AF579A /* MainView.swift in Sources */,
+				FDE0145829F0147700AF579A /* MessengerRootView.swift in Sources */,
 				FDE0146F29F0151F00AF579A /* SecuredButton.swift in Sources */,
+				FD90A18B29F16A6B00C267BB /* RootView.swift in Sources */,
 				FDE0145629F0147700AF579A /* MoodPalsMessengerApp.swift in Sources */,
 				FDE0147129F0152B00AF579A /* BlueBigBottomButton.swift in Sources */,
 				FDE0146829F014DC00AF579A /* MoodView.swift in Sources */,
+				FD90A18D29F16CAE00C267BB /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

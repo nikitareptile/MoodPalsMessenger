@@ -11,8 +11,6 @@ struct WelcomeView: View {
     
     let defaults = UserDefaults.standard
     
-    @State var isNotFirstLaunch = false
-    
     @State var screenWidth: CGFloat = UIScreen.main.bounds.width
     @State var screenHeight: CGFloat = UIScreen.main.bounds.height
     
@@ -36,15 +34,11 @@ struct WelcomeView: View {
             Spacer()
             
             BlueBigBottomButton(title: "Продолжить") {
-                isNotFirstLaunch = true
                 defaults.set(true, forKey: "isNotFirstLaunch")
             }
         }
         .padding(.horizontal, 28)
         .padding(.vertical)
-        .fullScreenCover(isPresented: $isNotFirstLaunch) {
-            LoginView()
-        }
     }
 }
 

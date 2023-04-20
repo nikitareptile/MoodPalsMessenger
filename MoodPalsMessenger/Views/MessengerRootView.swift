@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  MessengerRootView.swift
 //  MoodPalsMessenger
 //
 //  Created by Никита Тихонюк on 19.04.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MessengerRootView: View {
     var body: some View {
         VStack {
             Image(systemName: "globe")
@@ -21,6 +21,8 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        NavigationStack {
+            MessengerRootView()
+        }
     }
 }
