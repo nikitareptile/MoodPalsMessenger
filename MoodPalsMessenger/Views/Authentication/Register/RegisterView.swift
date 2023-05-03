@@ -8,69 +8,13 @@
 import SwiftUI
 import Firebase
 
-final class RegisterWithEmailViewModel: ObservableObject {
-    
-    @Published var username = ""
-    @Published var userEmail = ""
-    @Published var password = ""
-    
-    func isUsernameValidate() -> Bool {
-        let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_."
-        let filteredUsername = username.filter { allowedCharacters.contains($0) }
-        
-        if filteredUsername == username && username.count >= 4 && username.count <= 12 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func isEmailValidate() -> Bool {
-        let name = "[A-Z0-9a-z]([A-Z0-9a-z._%+-]{0,30}[A-Z0-9a-z])?"
-        let domain = "([A-Z0-9a-z]([A-Z0-9a-z-]{0,30}[A-Z0-9a-z])?\\.){1,5}"
-        let emailRegEx = name + "@" + domain + "[A-Za-z]{2,8}"
-        let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
-        
-        return emailTest.evaluate(with: userEmail)
-    }
-    
-    func isPasswordValidate() -> Bool {
-        let allowedCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+=.,/\\~"
-        let filteredPassword = password.filter { allowedCharacters.contains($0) }
-        
-        if filteredPassword == password && password.count >= 6 {
-            return true
-        } else {
-            return false
-        }
-    }
-    
-    func registerUser() {
-        guard isUsernameValidate(), isEmailValidate(), isPasswordValidate() else {
-            print("Что-то не так с логином или почтой, или паролем")
-            return
-        }
-        
-        Task {
-            do {
-                let returnetUserData = try await AuthenticationManager.shared.createUser(username: username, userEmail: userEmail, password: password)
-                print("Пользователь зарегистрирован")
-                print(returnetUserData)
-            } catch {
-                print("Ошибка регистрации: \(error)")
-            }
-        }
-    }
-    
-}
-
 struct RegisterView: View {
-    
-    let defaults = UserDefaults.standard
     
     @Environment(\.colorScheme) var colorScheme
     
     @StateObject private var viewModel = RegisterWithEmailViewModel()
+    
+    @Binding var showRegisteriew: Bool
     
     @State var screenWidth: CGFloat = UIScreen.main.bounds.width
     @State var screenHeight: CGFloat = UIScreen.main.bounds.height
@@ -91,6 +35,7 @@ struct RegisterView: View {
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .frame(maxWidth: 260)
+                    .padding(.top, 28)
                 Text("Создай аккаунт, чтобы начать общение")
                     .font(.body)
                     .multilineTextAlignment(.center)
@@ -98,23 +43,10 @@ struct RegisterView: View {
                     .foregroundColor(.gray)
                     .padding(.bottom)
                 
-//                Button {
-//
-//                } label: {
-//                    ZStack {
-//                        Circle()
-//                            .fill(textFieldColor)
-//                            .frame(width: screenWidth / 2.4)
-//                        Image(systemName: "photo")
-//                            .font(.system(size: 54))
-//                            .foregroundColor(colorScheme == .light ? .black : .white)
-//                    }
-//                }
-//                .padding(.bottom, 20)
-                
                 Group {
                     TextField("Имя пользователя", text: $viewModel.username)
                         .textInputAutocapitalization(.never)
+                        .submitLabel(.next)
                         .onChange(of: viewModel.username) { _ in
                             if viewModel.isUsernameValidate() || viewModel.username.count == 0 {
                                 errorText = ""
@@ -125,6 +57,7 @@ struct RegisterView: View {
                         }
                     TextField("Электронная почта", text: $viewModel.userEmail)
                         .textInputAutocapitalization(.never)
+                        .submitLabel(.next)
                         .keyboardType(.emailAddress)
                         .onChange(of: viewModel.userEmail) { _ in
                             if viewModel.isEmailValidate() {
@@ -138,6 +71,7 @@ struct RegisterView: View {
                         if isPasswordHidden {
                             SecureField("Пароль", text: $viewModel.password)
                                 .textInputAutocapitalization(.never)
+                                .submitLabel(.join)
                                 .onChange(of: viewModel.password) { _ in
                                     if viewModel.isPasswordValidate() {
                                         errorText = ""
@@ -149,6 +83,7 @@ struct RegisterView: View {
                         } else {
                             TextField("Пароль", text: $viewModel.password)
                                 .textInputAutocapitalization(.never)
+                                .submitLabel(.join)
                                 .onChange(of: viewModel.password) { _ in
                                     if viewModel.isPasswordValidate() {
                                         errorText = ""
@@ -178,24 +113,14 @@ struct RegisterView: View {
                 
                 Spacer()
                 
-                HStack {
-                    Text("Уже есть аккаунт?")
-                    NavigationLink {
-                        LogInView()
-                    } label: {
-                        Text("Войти")
-                    }
-                }
-                
                 SecuredButton(title: "Зарегистрироваться", isEnabled: isButtonEnabled) {
-                    defaults.set(true, forKey: "isUserRegistered")
+                    UserDefaults.standard.set(true, forKey: "isUserRegistered")
                     viewModel.registerUser()
                 }
             }
             .padding(.horizontal, 28)
             .padding(.vertical)
         }
-        .navigationBarBackButtonHidden()
     }
     
     private func shouldWeEnableButton() {
@@ -210,6 +135,6 @@ struct RegisterView: View {
 
 struct RegisterView_Previews: PreviewProvider {
     static var previews: some View {
-        RegisterView()
+        RegisterView(showRegisteriew: .constant(true))
     }
 }

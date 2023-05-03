@@ -9,10 +9,10 @@ import SwiftUI
 
 struct WelcomeView: View {
     
-    let defaults = UserDefaults.standard
-    
     @State var screenWidth: CGFloat = UIScreen.main.bounds.width
     @State var screenHeight: CGFloat = UIScreen.main.bounds.height
+    
+    @Binding var showWelcomeView: Bool
     
     var body: some View {
         VStack {
@@ -34,7 +34,8 @@ struct WelcomeView: View {
             Spacer()
             
             BlueBigBottomButton(title: "Продолжить") {
-                defaults.set(true, forKey: "isNotFirstLaunch")
+                showWelcomeView = false
+                UserDefaults.standard.set(true, forKey: "isNotFirstLaunch")
             }
         }
         .padding(.horizontal, 28)
@@ -44,6 +45,6 @@ struct WelcomeView: View {
 
 struct WelcomeView_Previews: PreviewProvider {
     static var previews: some View {
-        WelcomeView()
+        WelcomeView(showWelcomeView: .constant(true))
     }
 }

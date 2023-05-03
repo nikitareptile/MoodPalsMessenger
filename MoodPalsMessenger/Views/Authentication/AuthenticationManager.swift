@@ -25,6 +25,7 @@ struct AuthDataResultModel {
     
 }
 
+@MainActor
 final class AuthenticationManager {
     
     static let shared = AuthenticationManager()
@@ -51,7 +52,7 @@ final class AuthenticationManager {
         
         let userUid = authDataResult.user.uid
         let userData = ["uid": userUid, "username": username, "email": userEmail]
-        db.collection("users").document(userEmail).setData(userData) { error in
+        db.collection("users").document(userUid).setData(userData) { error in
             if let saveDataError = error {
                 print("Ошибка сохранения данных: \(saveDataError)")
             }

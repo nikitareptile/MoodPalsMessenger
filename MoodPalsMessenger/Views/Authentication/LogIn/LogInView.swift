@@ -16,6 +16,8 @@ struct LogInView: View {
     
     @StateObject private var viewModel = RegisterWithEmailViewModel()
     
+    @State private var showRegisterView = false
+    
     @State var isButtonEnabled = false
     @State var isAnimated = false
     @State var isPasswordHidden = true
@@ -55,6 +57,7 @@ struct LogInView: View {
                 Group {
                     TextField("Электронная почта", text: $viewModel.userEmail)
                         .textInputAutocapitalization(.never)
+                        .submitLabel(.next)
                         .keyboardType(.emailAddress)
                         .onSubmit {
                             getUsername(viewModel.userEmail) { username in
@@ -68,6 +71,7 @@ struct LogInView: View {
                         if isPasswordHidden {
                             SecureField("Пароль", text: $viewModel.password)
                                 .textInputAutocapitalization(.never)
+                                .submitLabel(.go)
                                 .onChange(of: viewModel.password) { _ in
                                     withAnimation(.easeIn(duration: 0.4)) {
                                         if viewModel.username == "" {
@@ -88,6 +92,7 @@ struct LogInView: View {
                         } else {
                             TextField("Пароль", text: $viewModel.password)
                                 .textInputAutocapitalization(.never)
+                                .submitLabel(.go)
                                 .onChange(of: viewModel.password) { _ in
                                     withAnimation(.easeIn(duration: 0.4)) {
                                         if viewModel.username == "" {
@@ -131,8 +136,8 @@ struct LogInView: View {
                 
                 HStack {
                     Text("Нет аккаунта?")
-                    NavigationLink {
-                        RegisterView()
+                    Button {
+                        showRegisterView = true
                     } label: {
                         Text("Создать")
                     }
@@ -146,11 +151,15 @@ struct LogInView: View {
             .padding(.horizontal, 28)
             .padding(.vertical)
         }
+        .navigationBarBackButtonHidden()
+        .sheet(isPresented: $showRegisterView) {
+            RegisterView(showRegisteriew: $showRegisterView)
+        }
         
     }
     
     private func shouldWeEnableButton() {
-        if viewModel.isUsernameValidate() && viewModel.isEmailValidate() && viewModel.isPasswordValidate() {
+        if viewModel.isEmailValidate() && viewModel.isPasswordValidate() {
             isButtonEnabled = true
         } else {
             isButtonEnabled = false
@@ -173,7 +182,7 @@ struct LogInView: View {
     
 }
 
-struct LoginView_Previews: PreviewProvider {
+struct LogInView_Previews: PreviewProvider {
     static var previews: some View {
         LogInView()
     }

@@ -27,11 +27,11 @@ struct RootView: View {
             showWelcomeView = !defaults.bool(forKey: "isNotFirstLaunch")
         }
         .fullScreenCover(isPresented: $showWelcomeView, content: {
-            WelcomeView()
+            WelcomeView(showWelcomeView: $showWelcomeView)
         })
-        .fullScreenCover(isPresented: $showLogInView) {
+        .fullScreenCover(isPresented: $showLogInView, content: {
             LogInView()
-        }
+        })
     }
 }
 

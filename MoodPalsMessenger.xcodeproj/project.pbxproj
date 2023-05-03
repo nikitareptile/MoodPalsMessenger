@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD42AF4129F7D85B00E7A680 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FD42AF4029F7D85B00E7A680 /* FirebaseFirestoreSwift */; };
+		FD42AF4329F7D99200E7A680 /* RegisterWithEmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD42AF4229F7D99200E7A680 /* RegisterWithEmailViewModel.swift */; };
+		FD42AF4929F7DAD700E7A680 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD42AF4829F7DAD700E7A680 /* ProfileView.swift */; };
 		FD90A18929F14C1E00C267BB /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */; };
 		FD90A18B29F16A6B00C267BB /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90A18A29F16A6B00C267BB /* RootView.swift */; };
 		FD90A18D29F16CAE00C267BB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD90A18C29F16CAE00C267BB /* SettingsView.swift */; };
@@ -30,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FD42AF4229F7D99200E7A680 /* RegisterWithEmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWithEmailViewModel.swift; sourceTree = "<group>"; };
+		FD42AF4829F7DAD700E7A680 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		FD90A18A29F16A6B00C267BB /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		FD90A18C29F16CAE00C267BB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -54,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD42AF4129F7D85B00E7A680 /* FirebaseFirestoreSwift in Frameworks */,
 				FDE0147B29F01DBB00AF579A /* FirebaseDatabase in Frameworks */,
 				FDE0147F29F01DBB00AF579A /* FirebaseStorage in Frameworks */,
 				FDE0147929F01DBB00AF579A /* FirebaseAuth in Frameworks */,
@@ -64,11 +70,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD42AF3F29F7D85B00E7A680 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FD42AF4429F7D9C000E7A680 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0146529F014AC00AF579A /* RegisterView.swift */,
+				FD42AF4229F7D99200E7A680 /* RegisterWithEmailViewModel.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		FD42AF4529F7D9D500E7A680 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				FDE0146329F014A400AF579A /* LogInView.swift */,
+			);
+			path = LogIn;
+			sourceTree = "<group>";
+		};
+		FD42AF4629F7DA1A00E7A680 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */,
+				FD42AF4529F7D9D500E7A680 /* LogIn */,
+				FD42AF4429F7D9C000E7A680 /* Register */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		FD42AF4729F7DAC200E7A680 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				FD42AF4829F7DAD700E7A680 /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		FDE0144929F0147700AF579A = {
 			isa = PBXGroup;
 			children = (
 				FDE0145429F0147700AF579A /* MoodPalsMessenger */,
 				FDE0145329F0147700AF579A /* Products */,
+				FD42AF3F29F7D85B00E7A680 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -85,7 +134,6 @@
 			children = (
 				FDE0145529F0147700AF579A /* MoodPalsMessengerApp.swift */,
 				FDE0147529F01C0400AF579A /* GoogleService-Info.plist */,
-				FD90A18829F14C1E00C267BB /* AuthenticationManager.swift */,
 				FDE0146B29F014FF00AF579A /* Views */,
 				FDE0147429F0153C00AF579A /* Components */,
 				FDE0145929F0147800AF579A /* Assets.xcassets */,
@@ -107,8 +155,8 @@
 			children = (
 				FD90A18A29F16A6B00C267BB /* RootView.swift */,
 				FDE0146929F014F200AF579A /* WelcomeView.swift */,
-				FDE0146529F014AC00AF579A /* RegisterView.swift */,
-				FDE0146329F014A400AF579A /* LogInView.swift */,
+				FD42AF4629F7DA1A00E7A680 /* Authentication */,
+				FD42AF4729F7DAC200E7A680 /* Profile */,
 				FDE0146729F014DC00AF579A /* MoodView.swift */,
 				FDE0145729F0147700AF579A /* MessengerRootView.swift */,
 				FD90A18C29F16CAE00C267BB /* SettingsView.swift */,
@@ -148,6 +196,7 @@
 				FDE0147A29F01DBB00AF579A /* FirebaseDatabase */,
 				FDE0147C29F01DBB00AF579A /* FirebaseFirestore */,
 				FDE0147E29F01DBB00AF579A /* FirebaseStorage */,
+				FD42AF4029F7D85B00E7A680 /* FirebaseFirestoreSwift */,
 			);
 			productName = MoodPalsMessenger;
 			productReference = FDE0145229F0147700AF579A /* MoodPalsMessenger.app */;
@@ -211,8 +260,10 @@
 				FDE0147329F0153800AF579A /* MoodChooseButton.swift in Sources */,
 				FD90A18929F14C1E00C267BB /* AuthenticationManager.swift in Sources */,
 				FDE0146429F014A400AF579A /* LogInView.swift in Sources */,
+				FD42AF4329F7D99200E7A680 /* RegisterWithEmailViewModel.swift in Sources */,
 				FDE0146A29F014F200AF579A /* WelcomeView.swift in Sources */,
 				FDE0146629F014AC00AF579A /* RegisterView.swift in Sources */,
+				FD42AF4929F7DAD700E7A680 /* ProfileView.swift in Sources */,
 				FDE0145829F0147700AF579A /* MessengerRootView.swift in Sources */,
 				FDE0146F29F0151F00AF579A /* SecuredButton.swift in Sources */,
 				FD90A18B29F16A6B00C267BB /* RootView.swift in Sources */,
@@ -433,6 +484,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FD42AF4029F7D85B00E7A680 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FDE0147729F01DBB00AF579A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
 		FDE0147829F01DBB00AF579A /* FirebaseAuth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FDE0147729F01DBB00AF579A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

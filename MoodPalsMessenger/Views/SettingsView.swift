@@ -9,7 +9,7 @@ import SwiftUI
 
 final class SettingsViewModel: ObservableObject {
     
-    func signOut() throws {
+    @MainActor func signOut() throws {
         try AuthenticationManager.shared.signOut()
     }
     
@@ -33,6 +33,7 @@ struct SettingsView: View {
                 }
             } label: {
                 Text("Выйти из аккаунта")
+                    .foregroundColor(.red)
             }
 
         }
