@@ -9,13 +9,40 @@ import SwiftUI
 
 struct MessengerRootView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ScrollView {
+            VStack {
+                ForEach(0..<10, id: \.self) { num in
+                    VStack {
+                        HStack(spacing: 20) {
+                            Image(systemName: "person.fill")
+                                .font(.largeTitle)
+                            VStack {
+                                HStack {
+                                    Text("Username")
+                                    Spacer()
+                                    Text("time")
+                                }
+                                HStack {
+                                    Text("Message")
+                                    Spacer()
+                                    Text("1")
+                                }
+                                Divider()
+                            }
+                        }
+                    }
+                    .padding(.horizontal)
+                }
+            }
         }
-        .padding()
+        .navigationTitle("Чаты")
+        .toolbar {
+            Button {
+                
+            } label: {
+                Label("Search", systemImage: "magnifyingglass")
+            }
+        }
     }
 }
 
