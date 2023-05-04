@@ -19,7 +19,7 @@ struct WelcomeScreenText: View {
         HStack(spacing: 20) {
             Text(icon)
                 .font(.system(size: 44))
-                .padding(.leading, screenWidth * 0.08)
+                .padding(.leading, screenWidth * 0.04)
             VStack(alignment: .leading, spacing: 5) {
                 Text(title)
                     .font(.headline)
@@ -29,6 +29,6 @@ struct WelcomeScreenText: View {
             Spacer()
         }
         .padding(.vertical, 8)
-        .frame(maxWidth: screenWidth * 0.86)
+        .frame(maxWidth: screenWidth * 0.9)
     }
 }

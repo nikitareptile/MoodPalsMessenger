@@ -9,29 +9,30 @@ import SwiftUI
 
 struct RootView: View {
     
-    let defaults = UserDefaults.standard
-    
     @State private var showWelcomeView = false
     @State private var showLogInView = false
+    @State private var showMessengerView = false
     
     var body: some View {
-        ZStack {
-            NavigationStack {
-                MessengerRootView()
+        NavigationView {
+            ZStack {
+                if UserDefaults.standard.bool(forKey: "isUserLoggedIn") {
+                    MessengerRootView()
+                } else {
+                    LogInView()
+                }
             }
+            .onAppear {
+                let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
+                self.showLogInView = authUser == nil
+                self.showMessengerView = authUser == nil
+                
+                showWelcomeView = !UserDefaults.standard.bool(forKey: "isNotFirstLaunch")
+            }
+            .fullScreenCover(isPresented: $showWelcomeView, content: {
+                WelcomeView(showWelcomeView: $showWelcomeView)
+            })
         }
-        .onAppear {
-            let authUser = try? AuthenticationManager.shared.getAuthenticatedUser()
-            self.showLogInView = authUser == nil
-            
-            showWelcomeView = !defaults.bool(forKey: "isNotFirstLaunch")
-        }
-        .fullScreenCover(isPresented: $showWelcomeView, content: {
-            WelcomeView(showWelcomeView: $showWelcomeView)
-        })
-        .fullScreenCover(isPresented: $showLogInView, content: {
-            LogInView()
-        })
     }
 }
 
