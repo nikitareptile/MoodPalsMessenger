@@ -27,6 +27,7 @@ struct MessengerRootView: View {
                                     Spacer()
                                     Text("1")
                                 }
+                                Divider()
                             }
                         }
                     }
